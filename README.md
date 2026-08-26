@@ -1,8 +1,12 @@
-# Album JSON Format
+# Album Chart Viewer
+
+A minimal, compact version of a series graph, but for music albums. A simple load and view system for previewing album rankings in a chart format.
+
+## Album JSON Format
 
 Format used for loading albums.
 
-## Structure
+### Structure
 
 {
   "type": "album",
@@ -15,7 +19,7 @@ Format used for loading albums.
   "notes": []
 }
 
-## Fields
+### Fields
 
 - `type` — Must be `"album"`.
 - `title` — Album name.
@@ -26,7 +30,7 @@ Format used for loading albums.
 - `tracks` — List of tracks.
 - `notes` — List of notes.
 
-## Tracks
+### Tracks
 
 Each track contains:
 
@@ -40,12 +44,12 @@ Each track contains:
 - `name` — Track name.
 - `rating` — Rating from 0–10.
 
-## Notes
+### Notes
 
 Notes are plain strings. They are associated with tracks by starting with the track name.
 
 "Excursions: Good setup, but a little slow."
 
-## Overall Ranking
+### Overall Ranking
 
 Overall ranking is calculated in the backend. The JSON only handles individual track ratings separately.
