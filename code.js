@@ -1,3 +1,5 @@
+let curTheme = "dark-theme" 
+
 function tier(v){
   if(v === null || v === undefined) return "empty";
   if(v >= 9.7) return "cinema";
@@ -88,3 +90,23 @@ function loadJsonFile(file){
 
 loadBtn.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("change", () => loadJsonFile(fileInput.files[0]));
+
+// to change between light or dark
+// :root is CSS's name for documentElement (<html>), but we don't use it anymore 
+// we now target documentElement directly from JS instead (DOM)
+// changing className replaces the whole class attribute
+// elements find var(--x) by walking up the DOM until they find where it's defined;
+// since none of them define these variables locally, they all walk up to <html>
+// and use whatever class is currently active there
+document.getElementById('dark-or-light-btn').addEventListener('click', () => {
+  console.log('clicked!');
+  if (curTheme === "dark-theme") {
+   curTheme = "light-theme";
+  } else if (curTheme === "light-theme") {
+    curTheme = "dark-theme";
+  }
+ document.documentElement.className = curTheme;
+});
+
+// set first
+document.documentElement.className = curTheme;

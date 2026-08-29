@@ -1,4 +1,4 @@
-  :root{
+  .dark-theme{
     --bg:            #0e0f11;
     --panel:         #17181b;
     --text:          #f2f0ea;
@@ -26,7 +26,41 @@
     --font-body: 'Inter', system-ui, sans-serif;
   }
 
+ .light-theme{
+  --bg:            #f7f6f3;
+  --panel:         #ffffff;
+  --text:          #17181b;
+  --text-dim:      #6b6b6f;
+  --accent:        #c73320;   /* title glow / star */
+
+  /* rating tiers — swap these to reskin the whole list */
+  --cinema:        #2f7d8f;   /* blue, faintly cyan — 9.7+ */
+  --cinema-text:   #ffffff;
+  --awesome:       #1c8a4c;
+  --awesome-text:  #ffffff;
+  --great:         #3fb46a;
+  --great-text:    #0d2b12;
+  --good:          #d9a91f;
+  --good-text:     #241c04;
+  --regular:       #c96a15;
+  --regular-text:  #ffffff;
+  --bad:           #c23a3a;
+  --bad-text:      #ffffff;
+  --garbage:       #8a76a0;   /* muted purple — below 3.0 */
+  --garbage-text:  #ffffff;
+
+  --radius: 10px;
+  --font-display: 'Montserrat', 'Arial Narrow', sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
   *{ box-sizing:border-box; }
+
+  /* important, makes buttons cliclable */
+  button {
+   cursor: pointer;
+  }
+
 
   body{
     margin:0;
@@ -105,15 +139,15 @@
   .tracklist{
     display:flex;
     flex-direction:column;
-    gap:8px;
+    gap:0px;
   }
 
   .track{
     display:grid;
-    grid-template-columns:32px 1fr 68px;
+    grid-template-columns:26px 1fr 60px;
     align-items:center;
-    gap:14px;
-    padding:8px 10px;
+    gap:15px;
+    padding:10px 10px;
     border-radius:8px;
   }
 
@@ -178,6 +212,16 @@
     cursor:pointer;
     z-index:10;
   }
+  #dark-or-light-btn{
+    position:fixed;
+    bottom:24px;
+    left:24px;
+    height:30px;
+    background:var(--panel);
+    border:0.1px solid var(--text-dim);
+    border-radius: 30%;
+  }
+  
   #load-btn:hover{ border-color:var(--cinema); }
 
   /* ---------- empty state ---------- */
