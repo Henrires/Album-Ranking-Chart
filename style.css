@@ -6,19 +6,19 @@
     --accent:        #e0402f;   /* title glow / star */
 
     /* rating tiers — swap these to reskin the whole list */
-    --cinema:        #4d9bab;   /* blue, faintly cyan — 9.7+ */
+    --cinema:        #1DA1F2;   /* blue, faintly cyan — 9.7+ */
     --cinema-text:   #ffffff;
-    --awesome:       #146b3a;
+    --awesome:       #186A3B;
     --awesome-text:  #f2f0ea;
-    --great:         #2f9e58;
+    --great:         #28B463;
     --great-text:    #10240f;
-    --good:          #e7c336;
+    --good:          #F4D03F;
     --good-text:     #241c04;
-    --regular:       #d97a1f;
+    --regular:       #F39C12;
     --regular-text:  #241304;
-    --bad:           #d64545;
+    --bad:           #E74C3C;
     --bad-text:      #2a0808;
-    --garbage:       #6f5b7e;   /* muted purple — below 3.0 */
+    --garbage:       #633974;   /* muted purple — below 3.0 */
     --garbage-text:  #f2f0ea;
 
     --radius: 10px;
