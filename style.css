@@ -19,6 +19,10 @@
     --bad:           #E74C3C;
     --bad-text:      #2a0808;
     --garbage:       #633974;   /* muted purple — below 3.0 */
+    
+    --empty:         #AEAEAE;
+    --empty-text:    #FFFFFF;
+    
     --garbage-text:  #f2f0ea;
 
     --radius: 10px;
@@ -48,6 +52,9 @@
   --bad-text:      #ffffff;
   --garbage:       #8a76a0;   /* muted purple — below 3.0 */
   --garbage-text:  #ffffff;
+  
+  --empty:         #AEAEAE;
+  --empty-text:    #FFFFFF;
 
   --radius: 10px;
   --font-display: 'Montserrat', 'Arial Narrow', sans-serif;
@@ -189,6 +196,7 @@
   .rating.regular{ background:var(--regular); color:var(--regular-text); }
   .rating.bad{     background:var(--bad);     color:var(--bad-text); }
   .rating.garbage{ background:var(--garbage); color:var(--garbage-text); }
+  .rating.empty{ background:var(--empty); color:var(--empty-text); }
 
   @media (max-width:640px){
     .poster{ grid-template-columns:1fr; }
