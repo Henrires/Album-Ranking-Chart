@@ -1,4 +1,4 @@
-let curTheme = "dark-theme";
+let curAlbum = null
 
 function tier(v) {
   if (typeof v !== "number" || !Number.isFinite(v)) return "empty";
@@ -75,6 +75,7 @@ function renderAlbum(album) {
   (album.tracks || []).forEach(t => {
     const row = document.createElement("div");
     row.className = "track";
+    
 
     const num = document.createElement("div");
     num.className = "num";
@@ -101,6 +102,8 @@ function renderAlbum(album) {
     row.appendChild(ratingBox);
 
     list.appendChild(row);
+    
+    curAlbum = album
   });
 
   // notes
@@ -162,21 +165,3 @@ fileInput.addEventListener("change", () =>
   loadJsonFile(fileInput.files[0])
 );
 
-
-// ---------- theme ----------
-
-document.getElementById("dark-or-light-btn").addEventListener("click", () => {
-  console.log("clicked!");
-
-  if (curTheme === "dark-theme") {
-    curTheme = "light-theme";
-  } else if (curTheme === "light-theme") {
-    curTheme = "dark-theme";
-  }
-
-  document.documentElement.className = curTheme;
-});
-
-
-// set first theme
-document.documentElement.className = curTheme;

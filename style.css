@@ -166,7 +166,7 @@
     color:var(--text-dim);
     font-weight:600;
     font-size:.95rem;
-    text-align:right;
+    text-align: right;
     font-variant-numeric:tabular-nums;
   }
 
@@ -206,31 +206,27 @@
 
   /* ---------- dropzone ---------- */
   #file-input{ display:none; }
-  #load-btn{
-    position:fixed;
-    bottom:24px;
-    right:24px;
+  
+  .button-bar{
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    gap: 8px;
+    padding: 11px;
+}
+  .btn{
     background:var(--panel);
     color:var(--text);
     border:1px solid var(--text-dim);
-    border-radius:8px;
-    padding:10px 16px;
+    border-radius: 8px;
     font-family:var(--font-body);
     font-size:.85rem;
+    padding: 7px 10px;
+    line-height: 1;
     cursor:pointer;
     z-index:10;
-  }
-  #dark-or-light-btn{
-    position:fixed;
-    bottom:24px;
-    left:24px;
-    height:30px;
-    background:var(--panel);
-    border:0.1px solid var(--text-dim);
-    border-radius: 30%;
-  }
-  
-  #load-btn:hover{ border-color:var(--cinema); }
+}
 
   /* ---------- empty state ---------- */
   #empty-state{

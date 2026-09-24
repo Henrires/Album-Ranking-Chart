@@ -9,17 +9,17 @@
 <body>
 
 <input type="file" id="file-input" accept="application/json,.json">
-<button id="load-btn">Load JSON</button>
-<button id="dark-or-light-btn">🌙</button>
+<div class="button-bar">
+  <button id="load-btn" class="btn">Load JSON</button>
+  <button id="dark-or-light-btn" class="btn">🌙</button>
+</div>
 
 <div id="empty-state">
   <div class="big">No album loaded</div>
-  <div>Use the "Load JSON" button</div>
+  <div>Use the "Load JSON" button, or, create one.</div>
 </div>
 
 <div class="poster hidden">
-
-  <!-- ============ LEFT: COVER + META (edit freely) ============ -->
   <div>
     <div class="cover-wrap">
       <img id="cover-img" src="https://placehold.co/500x500/1a1c1e/f2f0ea?text=Album+Art" alt="Album cover">
@@ -33,8 +33,7 @@
       <div class="year" id="album-year"></div>
     </div>
   </div>
-
-  <!-- ============ RIGHT: LEGEND + TRACKLIST (data-driven) ============ -->
+  
   <div>
     <div class="legend">
       <span><i class="dot cinema"></i>Absolute Cinema</span>
@@ -58,3 +57,4 @@
 </html>
 
 <script src="code.js"></script>
+<script src="theme.js"></script>
