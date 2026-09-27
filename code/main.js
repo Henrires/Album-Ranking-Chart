@@ -75,7 +75,7 @@ function renderAlbum(album) {
   (album.tracks || []).forEach(t => {
     const row = document.createElement("div");
     row.className = "track";
-    
+
 
     const num = document.createElement("div");
     num.className = "num";
@@ -102,10 +102,11 @@ function renderAlbum(album) {
     row.appendChild(ratingBox);
 
     list.appendChild(row);
-    
-    curAlbum = album
-    updateCreateEditButton()
   });
+
+  curAlbum = album
+  updateCreateEditButton()
+  updateModal(curAlbum)
 
   // notes
   const notesList = document.getElementById("notes-list");
@@ -160,4 +161,3 @@ fileInput.addEventListener("change", () =>
 );
 
 
-  

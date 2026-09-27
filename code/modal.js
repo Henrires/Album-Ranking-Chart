@@ -1,5 +1,6 @@
 let modalAlbumData
 
+// for loading, text and button change into output
 function renderOutput() {
   const tracks = [...modalTracks.querySelectorAll(".track-row")].map(row => {
     const rating = row.querySelector(".t.rating").value;
@@ -29,12 +30,33 @@ function renderOutput() {
   modalAlbumData = album;
 }
 
-// for title, artist, years, etc
+// when we create, to update modal
+function updateModal(album) {
+  document.getElementById("modal-title").value = album.title,
+    document.getElementById("modal-artist").value = album.artist,
+    document.getElementById("modal-year").value = album.year,
+    document.getElementById("modal-coverArt").value = album.coverArt,
+    version = album.version;
+
+  for (const currentSong of album.tracks) {
+    const position = currentSong.position
+    const name = currentSong.name
+    const rating = currentSong.rating
+
+    addTrackRow(position, name, rating)
+  }
+  for (const noteText of album.notes) {
+    addNoteRow(noteText)
+  }
+  renderOutput();
+}
+
+// when each change call renderOutput()
 ["modal-title", "modal-artist", "modal-year", "modal-coverArt"].forEach(id =>
   document.getElementById(id).addEventListener("input", renderOutput)
 );
 
-// TRACKS
+// to add track row, either on click or automatic
 const modalTracks = document.getElementById("modal-tracks");
 function addTrackRow(position, name, rating) {
   const row = document.createElement("div");
@@ -47,7 +69,7 @@ function addTrackRow(position, name, rating) {
   `;
 
   // when clicked remove
-  row.querySelector(".remove-btn").addEventListener("click", () => { // () prameter
+  row.querySelector(".remove-btn").addEventListener("click", () => { // () parameter
     row.remove();
     renderOutput();
   });
@@ -60,7 +82,7 @@ function addTrackRow(position, name, rating) {
   modalTracks.appendChild(row);
 }
 
-// NOTES
+// to add note, either on click or automatic
 const modalNotes = document.getElementById("modal-notes");
 function addNoteRow(text) {
   const row = document.createElement("div");
@@ -79,6 +101,7 @@ function addNoteRow(text) {
   modalNotes.appendChild(row);
 }
 
+// interactions / connections
 document.getElementById("modal-add-note").addEventListener("click", () => {
   addNoteRow();
   renderOutput();
@@ -88,24 +111,6 @@ document.getElementById("modal-add-track").addEventListener("click", () => {
   addTrackRow();
   renderOutput();
 });
-
-// after ended
-function updateCreateEditButton() {
-  createBtn.textContent = curAlbum ? "Edit" : "Create";
-}
-
-// close and open, button.
-const modalClose = document.getElementById("modal-close")
-const createBtn = document.getElementById("create-btn")
-const downloadBtn = document.getElementById("modal-download-btn")
-
-createBtn.addEventListener("click", () => {
-  document.querySelector(".editor-modal").classList.remove("hidden");
-});
-
-modalClose.addEventListener("click", () => 
-  document.querySelector(".editor-modal").classList.add("hidden")
-);
 
 // Save, and finally, call main.js renderAlbum
 const modalSave = document.getElementById("modal-save-btn")
@@ -120,6 +125,9 @@ modalSave.addEventListener("click", () => {
 });
 
 // download
+const createBtn = document.getElementById("create-btn")
+const downloadBtn = document.getElementById("modal-download-btn")
+
 downloadBtn.addEventListener("click", () => {
   const blob = new Blob([JSON.stringify(modalAlbumData, null, 2)], { type: "application/json" });
   const url = URL.createObjectURL(blob);
@@ -129,3 +137,19 @@ downloadBtn.addEventListener("click", () => {
   a.click();
   URL.revokeObjectURL(url);
 });
+
+// after ended
+function updateCreateEditButton() {
+  createBtn.textContent = curAlbum ? "Edit" : "Create";
+}
+
+// close and open, button.
+const modalClose = document.getElementById("modal-close")
+
+createBtn.addEventListener("click", () => {
+  document.querySelector(".editor-modal").classList.remove("hidden");
+});
+
+modalClose.addEventListener("click", () =>
+  document.querySelector(".editor-modal").classList.add("hidden")
+);

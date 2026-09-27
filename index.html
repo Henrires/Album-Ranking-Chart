@@ -1,88 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Album Ratings Poster</title>
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/modal.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Album Ratings Poster</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/modal.css">
 
 </head>
+
 <body>
 
-<input type="file" id="file-input" accept="application/json,.json">
-<div class="button-bar">
-  <button id="load-btn" class="btn">Load</button>
-  <button id="create-btn" class="btn">Create</button>
-  <button id="dark-or-light-btn" class="btn">🌙</button>
-</div>
+  <input type="file" id="file-input" accept="application/json,.json">
+  <div class="button-bar">
+    <button id="load-btn" class="btn">Load</button>
+    <button id="create-btn" class="btn">Create</button>
+    <button id="dark-or-light-btn" class="btn">🌙</button>
+  </div>
 
-<div id="empty-state">
-  <div class="big">No album loaded</div>
-  <div>Use the "Load" button, or, create one.</div>
-</div>
+  <div id="empty-state">
+    <div class="big">No album loaded</div>
+    <div>Use the "Load" button, or, create one.</div>
+  </div>
 
-<div class="poster hidden">
-  <div>
-    <div class="cover-wrap">
-      <img id="cover-img" src="https://placehold.co/500x500/1a1c1e/f2f0ea?text=Album+Art" alt="Album cover">
-    </div>
-    <div class="meta">
-      <div class="score">
-        <span class="star">★</span> <span id="overall-score">–</span>
+  <div class="poster hidden">
+    <div>
+      <div class="cover-wrap">
+        <img id="cover-img" src="https://placehold.co/500x500/1a1c1e/f2f0ea?text=Album+Art" alt="Album cover">
       </div>
-      <h1 id="album-title">–</h1>
-      <div class="artist" id="album-artist"></div>
-      <div class="year" id="album-year"></div>
+      <div class="meta">
+        <div class="score">
+          <span class="star">★</span> <span id="overall-score">–</span>
+        </div>
+        <h1 id="album-title">–</h1>
+        <div class="artist" id="album-artist"></div>
+        <div class="year" id="album-year"></div>
+      </div>
     </div>
+
+    <div>
+      <div class="legend">
+        <span><i class="dot cinema"></i>Absolute Cinema</span>
+        <span><i class="dot awesome"></i>Awesome</span>
+        <span><i class="dot great"></i>Great</span>
+        <span><i class="dot good"></i>Good</span>
+        <span><i class="dot regular"></i>Regular</span>
+        <span><i class="dot bad"></i>Bad</span>
+        <span><i class="dot garbage"></i>Garbage</span>
+      </div>
+      <div id="tracklist" class="tracklist"></div>
+      <div class="notes">
+        <h2>Notes</h2>
+        <ul id="notes-list"></ul>
+      </div>
+    </div>
+
   </div>
-  
-  <div>
-    <div class="legend">
-      <span><i class="dot cinema"></i>Absolute Cinema</span>
-      <span><i class="dot awesome"></i>Awesome</span>
-      <span><i class="dot great"></i>Great</span>
-      <span><i class="dot good"></i>Good</span>
-      <span><i class="dot regular"></i>Regular</span>
-      <span><i class="dot bad"></i>Bad</span>
-      <span><i class="dot garbage"></i>Garbage</span>
-    </div>
-    <div id="tracklist" class="tracklist"></div>
-    <div class="notes">
+
+  <div class="editor-modal hidden">
+    <div class="modal-content">
+      <button id="modal-close">X</button>
+      <h2>Album</h2>
+      <label>Title</label><input id="modal-title">
+      <label>Artist</label><input id="modal-artist">
+      <label>Year</label><input id="modal-year" type="number">
+      <label>Cover Art URL</label><input id="modal-coverArt">
+
+      <h2>Tracks</h2>
+      <div id="modal-tracks"></div>
+      <button id="modal-add-track">+ Add Track</button>
+
       <h2>Notes</h2>
-      <ul id="notes-list"></ul>
+      <div id="modal-notes"></div>
+      <button id="modal-add-note">+ Add Note</button>
+
+      <h2>Output JSON</h2>
+      <textarea id="modal-output" readonly></textarea>
+      <div class="actions">
+        <button id="modal-save-btn">Save</button>
+        <button id="modal-download-btn">Download .json</button>
+      </div>
     </div>
   </div>
-
-</div>
-
-<div class="editor-modal hidden">
-  <div class="modal-content">
-    <button id="modal-close">X</button>
-    <h2>Album</h2>
-    <label>Title</label><input id="modal-title">
-    <label>Artist</label><input id="modal-artist">
-    <label>Year</label><input id="modal-year" type="number">
-    <label>Cover Art URL</label><input id="modal-coverArt">
-
-    <h2>Tracks</h2>
-    <div id="modal-tracks"></div>
-    <button id="modal-add-track">+ Add Track</button>
-
-    <h2>Notes</h2>
-    <div id="modal-notes"></div>
-    <button id="modal-add-note">+ Add Note</button>
-
-    <h2>Output JSON</h2>
-    <textarea id="modal-output" readonly></textarea>
-    <div class="actions">
-      <button id="modal-save-btn">Save</button>
-      <button id="modal-download-btn">Download .json</button>
-    </div>
-  </div>
-</div>
 
 </body>
+
 </html>
 
 
