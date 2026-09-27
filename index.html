@@ -4,13 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Album Ratings Poster</title>
-<link rel="stylesheet" href="style.css"
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/modal.css">
+
 </head>
 <body>
 
 <input type="file" id="file-input" accept="application/json,.json">
 <div class="button-bar">
-  <button id="load-btn" class="btn">Load JSON</button>
+  <button id="load-btn" class="btn">Load</button>
+  <button id="create-btn" class="btn">Create</button>
   <button id="dark-or-light-btn" class="btn">🌙</button>
 </div>
 
@@ -53,8 +56,36 @@
 
 </div>
 
+<div class="editor-modal hidden">
+  <div class="modal-content">
+    <button id="modal-close">X</button>
+    <h2>Album</h2>
+    <label>Title</label><input id="modal-title">
+    <label>Artist</label><input id="modal-artist">
+    <label>Year</label><input id="modal-year" type="number">
+    <label>Cover Art URL</label><input id="modal-coverArt">
+
+    <h2">Tracks</h2>
+    <div id="modal-tracks"></div>
+    <button id="modal-add-track">+ Add Track</button>
+
+    <h2 style="margin-top:20px">Notes</h2>
+    <div id="modal-notes"></div>
+    <button id="modal-add-note">+ Add Note</button>
+
+    <h2>Output JSON</h2>
+    <textarea id="modal-output" readonly></textarea>
+    <div class="actions">
+      <button id="modal-save-btn">Save</button>
+      <button id="modal-download-btn">Download .json</button>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
 
-<script src="code.js"></script>
-<script src="theme.js"></script>
+
+<script src="code/main.js"></script>
+<script src="code/theme.js"></script>
+<script src="code/modal.js"></script>

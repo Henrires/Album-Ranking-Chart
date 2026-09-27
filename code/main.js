@@ -104,6 +104,7 @@ function renderAlbum(album) {
     list.appendChild(row);
     
     curAlbum = album
+    updateCreateEditButton()
   });
 
   // notes
@@ -123,9 +124,6 @@ function renderAlbum(album) {
   }
 }
 
-
-// ---------- drag & drop / file picker wiring ----------
-
 const fileInput = document.getElementById("file-input");
 const loadBtn = document.getElementById("load-btn");
 
@@ -139,23 +137,19 @@ function loadJsonFile(file) {
   reader.onload = e => {
     try {
       const data = JSON.parse(e.target.result);
-
       if (!isValidAlbum(data)) {
         alert("Invalid Json");
         return;
       }
 
       renderAlbum(data);
-
     } catch (err) {
       alert(
         "Couldn't read that file, make sure it's valid JSON matching the album schema."
       );
-
       console.error(err);
     }
   };
-
   reader.readAsText(file);
 }
 
@@ -165,3 +159,5 @@ fileInput.addEventListener("change", () =>
   loadJsonFile(fileInput.files[0])
 );
 
+
+  

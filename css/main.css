@@ -87,7 +87,7 @@
     width:100%;
   }
 
-  /* ---------- left: cover + meta ---------- */
+  /* left: cover + meta*/
   .cover-wrap img{
     width:100%;
     border-radius:var(--radius);
@@ -204,7 +204,7 @@
     .track .name{ white-space:normal; }
   }
 
-  /* ---------- dropzone ---------- */
+  /* dropzone */
   #file-input{ display:none; }
   
   .button-bar{
@@ -228,7 +228,7 @@
     z-index:10;
 }
 
-  /* ---------- empty state ---------- */
+  /* empty state  */
   #empty-state{
     display:flex;
     flex-direction:column;
@@ -246,9 +246,9 @@
     letter-spacing:.5px;
     color:var(--text);
   }
-  .poster.hidden{ display:none; }
+  .hidden { display: none; }
 
-  /* ---------- notes ---------- */
+  /* Notes */
   .notes{
     margin-top:32px;
   }
@@ -272,3 +272,4 @@
     line-height:1.5;
     color:var(--text);
   }
+
