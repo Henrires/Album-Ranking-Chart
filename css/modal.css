@@ -58,7 +58,7 @@
   body { grid-template-columns: 1fr; }
 }
 
-h2 { font-size: 1rem; color: var(--text-dim); margin: 0 0 10px; font-weight: 600; }
+h2 { font-size: 1rem; color: var(--text-dim); margin: 5px 0 5px; font-weight: 600;}
 label { display: block; font-size: .8rem; color: var(--text-dim); margin: 10px 0 4px; }
 input, textarea {
   width: 100%; background: var(--panel); color: var(--text);
@@ -73,6 +73,7 @@ input, textarea {
 .track-row {color: var(--bg);}
 
 button {
+  margin-bottom: 5px;
   background: var(--panel); color: var(--text); border: 1px solid var(--text-dim);
   border-radius: 6px; padding: 5px 10px; font-size: .8rem; cursor: pointer;
 }
@@ -81,9 +82,8 @@ button {
  background-color: var(--bg);
 }
 
-
 button:hover { border-color: var(--accent); }
-#add-track, #add-note { margin-top: 6px; }
+#add-track, #add-note { margin-bottom: 6px; }
 #modal-output {
   background-color: var(--bg);
   min-height: 400px;
