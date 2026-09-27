@@ -1,3 +1,7 @@
+  html, body {
+   transition: background-color 0.25s ease, color 0.25s ease;
+  }
+  
   .dark-theme{
     --bg:            #0e0f11;
     --panel:         #17181b;
