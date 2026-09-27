@@ -20,6 +20,7 @@ function renderOutput() {
     artist: document.getElementById("modal-artist").value,
     year: Number(document.getElementById("modal-year").value) || null,
     coverArt: document.getElementById("modal-coverArt").value || null,
+    version: 1,
     tracks,
     notes
   };
